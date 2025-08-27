@@ -1,0 +1,26 @@
+server:
+  port: 8002
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8001/eureka
+      fetch-registry: true
+      registerWithEureka : true
+
+spring:
+    cloud:
+      gateway:
+        routes:
+           - id: TrackingService
+             uri: lb://TrackingService
+             predicates:
+               - Path=/main/**
+           - id: AuthenticationService
+             uri: lb://AuthenticationService
+             predicates:
+               - Path=/authentication/**
+           - id: EmailService
+             uri: lb://EmailService
+             predicates:
+               - Path=/email/**
