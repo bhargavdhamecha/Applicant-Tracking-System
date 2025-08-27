@@ -1,0 +1,52 @@
+<div class="search-container">
+  <form action="" class="search-form" [formGroup]="searchForm">
+    <mat-form-field class="search-field" appearance="fill">
+      <input matInput placeholder="Search here" #searchInput value="" formControlName="query" >
+    </mat-form-field>
+    <button mat-raised-button class="search-btn" matTooltip="Filter" (click)="openFilter()" ngClass="btn-purple"
+      color="primary"><span><mat-icon>filter_list</mat-icon></span></button>
+      <button mat-raised-button color="primary" (click)="exportexcel()" ngClass="btn-purple ">Download Report</button>
+  </form>
+</div>
+<div *ngIf="filterHide" class="accordion-container">
+
+  <form action="" [formGroup]="filterForm" class="filter-container">
+    <mat-form-field appearance="outline">
+      <mat-label>Stages</mat-label>
+      <mat-select formControlName="stages" (selectionChange)="stageChange()">
+        <ng-container *ngFor="let stage of stages">
+          <mat-option *ngIf="stage.isActive" [value]="stage.stageName">{{stage.stageName}}</mat-option>
+        </ng-container>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Rounds</mat-label>
+      <mat-select formControlName="rounds">
+        <mat-option *ngFor="let round of rounds" [value]="round.roundName">
+          {{round.roundName}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>status</mat-label>
+      <mat-select formControlName="statuses">
+        <mat-option *ngFor="let status of statuses" [value]="status">
+          {{status}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Stream</mat-label>
+      <mat-select formControlName="streams">
+        <ng-container *ngFor="let stream of streams">
+          <mat-option *ngIf="stream.isActive" [value]="stream.streamName">
+            {{stream.streamName}}
+          </mat-option>
+        </ng-container>
+      </mat-select>
+    </mat-form-field>
+  </form>
+  <div class="apply-btn">
+    <button mat-raised-button color="primary" ngClass="btn-purple" (click)="applyFilter()">Apply</button>
+  </div>
+</div>

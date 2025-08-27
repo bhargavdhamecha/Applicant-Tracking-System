@@ -1,0 +1,94 @@
+/*-------------------------------------
+  Common Styles
+-------------------------------------*/
+
+.section div {
+  padding: 0.625rem;
+}
+
+/*-------------------------------------
+  Mat Card Styles
+-------------------------------------*/
+
+mat-card {
+  border-radius: 1.875rem;
+  width: 40%;
+  box-shadow: var(--box-shadow)
+}
+
+mat-card:not(#stream):hover {
+  transition: scale 1s ease;
+  /* box-shadow: 0.25rem  0.25rem  0.313rem var(--main-color */
+}
+
+.section div mat-card {
+  height: 6em
+}
+
+/*-------------------------------------
+  Mat Card Content Styles
+-------------------------------------*/
+
+[mat-fab] {
+  float: right;
+  background-color: #324896;
+  height: 3.125rem;
+}
+
+button:hover {
+
+  background-color: aliceblue;
+  color: black;
+
+}
+
+#inputStream {
+  font-size: 1.125rem;
+  font-weight: bold;
+  padding: 1.25rem;
+}
+
+.section div mat-card #img {
+  width: 6%;
+}
+
+input {
+  border: hidden;
+  padding-top: 0.938rem;
+  width: 40%;
+  font-size: 1.125rem;
+  font-weight: bold;
+
+}
+
+#inputStream:focus {
+
+  /* border-bottom-style: groove;
+  border-bottom: 4px solid #e5e5e5; */
+  outline: none;
+  border-color: #B0DAFF;
+
+
+}
+
+/*-------------------------------------
+  Media Queries For Responsiveness
+-------------------------------------*/
+
+@media only screen and (width<81.25rem) {
+
+  .section div mat-card {
+    width: 100%;
+  }
+
+  .section div mat-card #img {
+    width: 4%;
+    margin-top: -0.625rem
+  }
+}
+
+@media only screen and (width<62.5rem) {
+  #img {
+    display: none;
+  }
+}

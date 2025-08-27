@@ -1,0 +1,14 @@
+<!-- Showing list of Stream -->
+<div class="section">
+    <div #delete>
+        <mat-card>
+            <mat-card-content>
+                <!-- <img src="../../assets/asite123.png" id="img" /> -->
+                <input matInput [value]="streamData.streamName | uppercase" id="inputStream" readonly (click)="editStream(edit)" (keypress)="edt($event,streamData.streamId,edit)" #edit />
+                <button mat-fab color="primary" (click)="openSnackBar('Stream Deleted')" (click)="deleteStream(delete,streamData.streamId)">
+                    <mat-icon>delete</mat-icon>
+                </button>             
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

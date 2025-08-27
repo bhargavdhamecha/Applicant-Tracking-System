@@ -1,0 +1,21 @@
+<div class="dialog-title">Edit Stage</div>
+<div class="dialog-container">
+  <form [formGroup]="editStage" (submit)="editStageDetails()">
+    <mat-form-field appearance="outline">
+      <mat-label>Stage Name</mat-label>
+      <input matInput formControlName="stagename" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Stage Sequence</mat-label>
+      <input type="number" formControlName="stagesequence" min="1" matInput />
+    </mat-form-field>
+    <button
+      mat-raised-button
+      class="add-btn"
+      type="submit"
+      [disabled]="editStage.invalid"
+    >
+      Update Stage
+    </button>
+  </form>
+</div>
